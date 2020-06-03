@@ -21,7 +21,6 @@ class UserRecordView(APIView):
 
     def post(self, request):
         serializer = UserSerializer(data=request.data)
-        breakpoint()
         if serializer.is_valid(raise_exception=ValueError):
             serializer.create(validated_data=request.data)
             return Response(
